@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Bucles</title>
+		<meta charset="UTF-8"/>		
+	</head>
+	<body>
+		<h1>Bucles</h1>
+
+		<script type="text/javascript">
+
+			// --- EJEMPLO 1 (forma 1) --- Saca por pantalla el número 'counter' tantas veces como marque 'repeatTimes' (de 0 a 4 en este ejemplo)
+
+			var repeatTimes = 5;
+			var counter = 0;
+
+			// Bucle de tipo while: ejecuta el código SIEMPRE que la condición sea TRUE. Termina en el momento en que sea FALSE.
+			while(counter < repeatTimes)
+			{
+				alert("Valores: veces = " + repeatTimes + "; contador = " + counter);
+
+				// Se suma 1 al counter
+				counter = counter + 1;
+			}
+
+
+
+
+			// --- EJEMPLO 2 --- Pregunta al usuario un número y lo saca por pantalla hasta llegar a 0, restando de 1 en 1.
+
+			var times = prompt("Elige un valor");
+
+			// Se repetiría siempre que el número sea mayor o igual a 0
+			while(times >= 0)
+			{
+				alert(times);
+
+				// Se resta 1 al valor actual de times
+				--times;
+			}
+			
+		</script>
+
+	</body>
+
+</html>

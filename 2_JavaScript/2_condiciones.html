@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Condiciones</title>
+		<meta charset="UTF-8"/>		
+	</head>
+	<body>
+		<h1>Condiciones</h1>
+
+		<script type="text/javascript">
+
+			var age;
+
+			age = prompt("¿How old are you?");
+
+			// Se asigna una expresión (age >= 18) a una variable. El resultado será SÓLO o 'true' o 'false'
+			var if_is_adult = age >= 18;
+
+			// Estructura de un condicional (condición dentro de los paréntesis). Todo el paréntesis se evalúa y sólo puede resultar en 'true o 'false'
+			if(if_is_adult == true)
+			{
+				// Cuerpo del condicional (en caso de que la condición sea cierta (TRUE))
+
+				alert("You're fucking adult!");
+			}
+			else
+			{
+				// Cuerpo en caso de que la condición sea falsa (FALSE))
+
+				if (age < 3)
+					alert("Are you a baby?");
+
+				else if (age >= 3 && age < 13)
+					alert("You are a child");
+			}
+			
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Bucles</title>
+		<meta charset="UTF-8"/>		
+	</head>
+	<body>
+		<h1>Bucles</h1>
+
+		<script type="text/javascript">
+
+			// EJEMPLO: Pregunta al usuario un número de inicio y uno de final. Después muestra desde inicial hasta el final número a número.
+			// Hay que tener en cuenta que el número inicial puede ser menor que el final o mayor que el final
+
+			var start = prompt("Escribe el inicio");
+			var end = prompt("Escribe el final");
+
+			while(start < end)
+			{
+				alert(start);
+				++start;
+			}
+
+			while(start > end)
+			{
+				alert(start);
+				--start;
+			}
+
+			// Otras formas de hacerlo:
+
+			// Con el bucle fuera del if (o el if dentro del while)
+			// Con un único while, sin IF
+			
+		</script>
+
+	</body>
+
+</html>
