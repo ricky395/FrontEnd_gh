@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Check Input</title>
+		<meta charset="UTF-8"/>		
+	</head>
+	<body>
+		<h1>Check Input</h1>
+
+		<script type="text/javascript">
+
+		setTimeout(function() 
+		{
+			var start = null;
+			var end = null;
+
+			while(typeof(start) != "number")
+			{
+				start = prompt("Introduce número de inicio");
+				start = parseInt(start);
+
+				alert(typeof(start));
+			}
+
+			while(typeof(end) != "number")
+			{
+				end = prompt("Introduce un número final");
+				end = parseInt(end);
+
+				alert(end);
+			}
+
+			start = parseInt(start);
+			end = parseInt(end);
+
+			var it = parseInt(Math.sign(end - start));
+
+			count = start;
+			while(count != end)
+			{
+				alert(count);
+				count += it;
+			}
+
+			alert(count);
+
+		}, 10);			
+
+		</script>
+
+	</body>
+
+</html>

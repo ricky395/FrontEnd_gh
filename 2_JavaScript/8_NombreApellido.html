@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Nombre y Edad</title>
+		<meta charset="UTF-8"/>		
+	</head>
+	<body>
+		<h1>Nombre y Edad</h1>
+
+		<script type="text/javascript">
+
+			var nombre = "";
+			var edad = 0;
+
+			//while(isNaN(nombre) == false) // No permite espacios o números, pero sí letras mezcladas con números
+			while(!/^[a-zA-Z]+$/.test(nombre)) // Esto es más avanzado. Sólo permite letras
+			{
+				nombre = prompt("Introduce tu nombre");
+				//console.log(isNaN(nombre)); //1 false / a true / a1 true / 1a true / "" false
+			}
+
+			while(!Number.isInteger(edad) || edad <= 0)
+			{
+				edad = prompt("Introduce tu edad");
+				edad = parseInt(edad);
+			}
+
+			alert("Bienvenido " + nombre 
+				+ ". \n \t- Tienes:\n \t \" " + edad 
+				+ " años \" ");
+
+		</script>
+
+	</body>
+
+</html>

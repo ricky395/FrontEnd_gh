@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Tipos</title>
+		<meta charset="UTF-8"/>		
+	</head>
+	<body>
+		<h1>Tipos</h1>
+
+		<script type="text/javascript">
+
+			var start = prompt("Introduce número de inicio");
+
+			while(isNaN(start) || start == null)
+			{
+				start = prompt("Inicio incorrecto. Introduce un número");
+			}
+
+			var end = prompt("Introduce número final");
+
+			while(isNaN(end) || end == null)
+			{
+				end = prompt("Final incorrecto. Introduce un número");
+			}
+
+			start = parseInt(start);
+			end = parseInt(end);
+
+			var it = parseInt(Math.sign(end - start));
+
+			count = start;
+			while(count != end)
+			{
+				alert(count);
+				count += it;
+			}
+
+			alert(count);
+
+		</script>
+
+	</body>
+
+</html>
