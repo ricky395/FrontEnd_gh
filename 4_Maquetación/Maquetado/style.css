@@ -1,0 +1,107 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	margin: 0;
+}
+
+header {
+	background-color: #2D2D2D;
+	height: 4em;
+	padding: 1em;
+}
+
+ul, li {
+	list-style: none;
+}
+
+h1 {
+	font-family: Consolas, "Andale Mono", "Lucida Console";
+	margin-top: 0;
+}
+
+p {
+	font-family: Consolas, "Andale Mono", "Lucida Console";	
+}
+
+section {
+	background-color: beige;
+	min-height: 10em;
+	margin-top: 10px;
+	padding: 10px;
+	overflow: hidden;
+}
+
+.espacioCentral {
+	background-color: #69C;
+	width: 75%;
+	margin: auto;
+	min-height: 5em;
+	padding: 10px;
+}
+
+.espacioBanner {
+	background-color: #69C;
+	margin: auto;
+	width: 75%;
+	height: 4em;
+}
+
+.botonBanner {
+	background-color: green;
+	font-family: Consolas, "Andale Mono", "Lucida Console";
+	float: left;
+	margin-left: 1em;
+	color: black;
+	padding: 1em;
+	text-decoration: none;
+	box-shadow: none;
+	font-size: 1em;
+
+	transition: background-color 0.3s, 
+				color 0.3s, 
+				box-shadow 0.3s,
+				font-size 0.3s ;
+}
+
+.botonBanner:hover {
+	background-color: black;
+	box-shadow: 5px 5px 5px rgb(80, 80, 80);
+	color: white;
+	font-size: 1.01em;
+
+	transition: 0.3s;
+}
+
+.caja-100, .caja-25, .caja-33, .caja-75 {
+	background-color:#CCC;
+	min-height:5em;
+}
+
+.caja-33 {
+	width: 33.3333333%;
+	float: left;
+}
+
+.caja-25 {
+	width: 25%;
+	float: left;
+}
+
+.caja-75 {
+	width: 75%;
+	float: left;
+}
+
+.espacioFooter {
+	background-color: #69C;
+	position: relative;
+	height: 4em;
+}
+
+/*.caja-33-flex{
+	width: 33%;
+	float: left;
+	display:flex;
+	flex-direction:column;
+}*/

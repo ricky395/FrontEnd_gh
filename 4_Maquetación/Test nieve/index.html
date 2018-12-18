@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)https://www.youtube.com/?gl=ES&hl=es -->
+<html invert="" style="font-size: 10px;font-family: Roboto, Arial, sans-serif; background-color: #fafafa;" lang="es-ES">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="style.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+ <img class="floatingImage" id="myImg1" src="gato2.png" > 
+ <img class="floatingImage" id="myImg2" src="gato2.png" > 
+ <img class="floatingImage" id="myImg3" src="gato2.png" > 
+ <img class="floatingImage" id="myImg4" src="gato2.png" > 
+ <img class="floatingImage" id="myImg5" src="gato2.png" > 
+ <img class="floatingImage" id="myImg6" src="gato2.png" > 
+ <img class="floatingImage" id="myImg7" src="gato2.png" > 
+ <img class="floatingImage" id="myImg8" src="gato2.png" > 
+ <img class="floatingImage" id="myImg9" src="gato1.png" > 
+
+ <div class="text">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel eos nihil voluptate dicta placeat, minus architecto, alias quo ratione? Doloribus autem eligendi tenetur, tempora repudiandae officia dolor vitae natus libero nostrum impedit obcaecati totam molestias! Distinctio quo eligendi qui aperiam fugit, sed voluptate fuga aspernatur dolorum pariatur alias iure tenetur quae consectetur minima? Facere ipsam officiis ullam nemo, ab unde, dolores cumque. Temporibus illum repudiandae soluta laborum architecto consequatur nesciunt reprehenderit ipsum numquam perferendis natus obcaecati, esse quaerat, repellat officiis eligendi laudantium, ea molestias perspiciatis autem iure facilis quis eveniet hic. Similique a cum nesciunt ratione unde porro, necessitatibus sed! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel eos nihil voluptate dicta placeat, minus architecto, alias quo ratione? Doloribus autem eligendi tenetur, tempora repudiandae officia dolor vitae natus libero nostrum impedit obcaecati totam molestias! Distinctio quo eligendi qui aperiam fugit, sed voluptate fuga aspernatur dolorum pariatur alias iure tenetur quae consectetur minima? Facere ipsam officiis ullam nemo, ab unde, dolores cumque. Temporibus illum repudiandae soluta laborum architecto consequatur nesciunt reprehenderit ipsum numquam perferendis natus obcaecati, esse quaerat, repellat officiis eligendi laudantium, ea molestias perspiciatis autem iure facilis quis eveniet hic. Similique a cum nesciunt ratione unde porro, necessitatibus sed!
+ </div>
+
+<script type="text/javascript">
+
+	function cage(image, posX, posY)
+	{
+	  this.img = image;
+	  this.posX = posX;
+	  this.posY = posY;
+	  this.velX = 3;
+	  this.velY = 3;
+	}
+
+	var elms = new Array(9);
+
+	for (var i = 0; i < 9; i++) {
+		elms[i] = new cage(document.getElementById("myImg" + (i + 1).toString()), i*100, i*10);
+	}
+
+	setInterval(bounce, 10);
+
+	function bounce()
+	{
+		for (var i = elms.length - 1; i >= 0; i--) 
+		{
+			var el = elms[i];
+			el.posX += el.velX;
+			el.posY += el.velY;
+
+			el.img.style.left = el.posX + "px";
+			el.img.style.top = el.posY + "px";
+
+			if (el.posX + 200 >= window.innerWidth)
+			{
+				el.velX *= -1;
+			}
+			if (el.posY + 200 >= window.innerHeight)
+			{
+				el.velY *= -1;
+			}
+			if (el.posX <= 0)
+			{
+				el.velX *= -1;
+			}
+			if (el.posY <= 0)
+			{
+				el.velY *= -1;
+			}
+		}		
+
+		//window.innerWidth
+	}
+</script>
+
+</body>

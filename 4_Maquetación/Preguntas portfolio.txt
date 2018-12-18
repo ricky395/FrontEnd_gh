@@ -1,0 +1,58 @@
+Programas para clase:
+- Libre Office (o Microsoft)
+- Balsamiq MockUps (o Marvelapp)
+
+
+Preguntas desarrollador:
+
+¿Qué quieres transmitir con la web? Tipo de profesión
+ - Información sobre mi y mi experiencia. De forma secundaria tener una comunidad en la que poder añadir info extra y comentar.
+
+	¿Qué emoción quieres que tenga el visitante?
+	 - Profesionalidad y seriedad en el trabajo
+
+	¿Qué estética tiene o cómo la imaginas?
+	 - Con colores azulados, que representen un formato digital y separada en secciones
+
+¿Quién es el público objetivo?
+ - Empresas o particulares que 
+
+¿Mantenimiento o actualizaciones? Estructuración a nivel técnico
+ - Sólo actualizar la información, sin cambiar estructura
+ 
+Tipo de interfaz
+ - Sencilla, scroll vertical
+ 
+¿Qué tipo de info se quiere mostrar y qué es lo primero?
+ - Trabajos realizados en diferentes lenguajes, contacto y experiencia profesional
+ 
+¿Cómo se categorizará la información?
+ - Datos personales y contacto, experiencia profesional, trabajos
+ 
+Formatos: vídeos, texto, audio
+ - Texto, imágenes y código (probabilidad de ejecutable)
+ 
+Vinculada a RRSS o webs
+ - Linkedin, twitter, fb
+ 
+Objetivo del portfolio (beneficio económico, darse a conocer...)
+ - Darme a conocer y crear comunidad
+ 
+¿Responsive? ¿Qué plataformas? Desktop, móvil, tablet.
+ - Responsive en todos los dispositivos
+ 
+¿Idiomas?
+ - Español e inglés
+ 
+Deadline
+ - Ya va tarde
+ 
+¿Qué tecnologías conoces? Frameworks, lenguajes
+ - html, CSS, JS
+ 
+¿Dónde ve las dificultades de cómo comunicar y organizar en caso de tener portfolio heterogéneo?
+ - Intentar no mezclar la informaación. Hay que separar bien los apartados de experiencia, trabajos propios e información personal
+ 
+¿Qué tienes para mostrar?
+ - Imágenes personales y proyectos
+ 

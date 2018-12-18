@@ -9,52 +9,113 @@
 
 		<script type="text/javascript">
 
-			var texto = prompt("Introduce un texto");
+		setTimeout(function() 
+		{
+			var text = prompt("Introduce un texto");
 
-			document.write("Texto: " + texto + "<br/>");
-			document.write("Longitud: " + texto.length + "<br/>");
-			document.write("En may&uacute;sculas: " + texto.toUpperCase() + "<br/>");
-			document.write("En min&uacute;sculas: " + texto.toLowerCase() + "<br/>");
-			document.write("Primer caracter: " + texto.charAt(0) + "<br/>");
-			document.write("Tercer caracter: " + texto.charAt(2) + "<br/>");
-			document.write("Primer espacio en la posici&oacute;n: " + texto.indexOf(" ") + "<br/>");
-			document.write("Primera mitad del texto: " + texto.substring(0, texto.length / 2) + "<br/>"); // Desde una posición a otra
-			document.write("Segunda mitad del texto: " + texto.substring(texto.length / 2) + "<br/>"); // Desde la posición que se ponga hasta el final
+			document.write("Texto: " + text + "<br/>");
+			document.write("Longitud: " + text.length + "<br/>");
+			document.write("En may&uacute;sculas: " + text.toUpperCase() + "<br/>");
+			document.write("En min&uacute;sculas: " + text.toLowerCase() + "<br/>");
+			document.write("Primer caracter: " + text.charAt(0) + "<br/>");
+			document.write("Tercer caracter: " + text.charAt(2) + "<br/>");
+			document.write("Primer espacio en la posici&oacute;n: " + text.indexOf(" ") + "<br/>");
+			document.write("Primera mitad del texto: " + text.substring(0, text.length / 2) + "<br/>"); // Desde una posición a otra
+			document.write("Segunda mitad del texto: " + text.substring(text.length / 2) + "<br/>"); // Desde la posición que se ponga hasta el final
 
 			document.write("<br/><br/><br/>");
 
 			// 1- Hacer la primera letra mayúscula y el resto minúscula
 
-			var primeraLetra = texto.charAt(0).toUpperCase();
-			var restoTexto = texto.substring(1).toLowerCase();
+			var primeraLetra = text.charAt(0).toUpperCase();
+			var restoTexto = text.substring(1).toLowerCase();
 
 			document.write(primeraLetra + restoTexto + "<br/>");
 
 			// 2- Convertir la primera letra de cada palabra a mayúsculas y las demás en minúsculas -> JUAN perez = Juan Perez
 
-			var index = 0;
-			var auxText = "";
-			auxText += texto.charAt(index).toUpperCase();
+			var spaceIndex = 0;
+			spaceIndex = text.indexOf(" ", spaceIndex);
 
-			while(texto.indexOf(" ") != -1)
+			var auxText //= text.substring(0, spaceIndex);
+			var prevSpaceIndex = -1;
+			var finalText = "";
+
+			text += " ";
+
+			// document.write(auxText.charAt(0).toUpperCase() + auxText.substring(1).toLowerCase());
+
+			while(spaceIndex != -1)
 			{
-				
+				auxText = text.substring(prevSpaceIndex + 1, spaceIndex);
+				prevSpaceIndex = spaceIndex
+				spaceIndex = text.indexOf(" ", spaceIndex + 1);
+
+				finalText += auxText.charAt(0).toUpperCase() + auxText.substring(1).toLowerCase() + " "
 			}
 
-			var posEspacio = 
-			var primeraLetra = texto.charAt(0).toUpperCase();
-			var segundaLPos = posEspacio + 1;
-			var segundaLetra = texto.charAt(posEspacio + 1).toUpperCase();
+			document.write(finalText + "<br/><br/><br/> Método letra por letra: <br/>");
 
-			document.write("HEHEE " + posEspacio + "<br/>");
+			////
+
+			var index = 0;
+
+			while(index < text.length)
+			{
+				if (index - 1 >= 0)
+				{
+					if (text.charAt(index - 1) == " ")
+						document.write(text.charAt(index).toUpperCase());
+					else
+						document.write(text.charAt(index).toLowerCase());
+				}
+				else
+					document.write(text.charAt(index).toUpperCase());
+
+				++index;
+			}
+
+			document.write("<br/>");
 
 			// 3- Mostrar sólo las iniciales. -> Juan Pérez = JP
 
-			var posEspacio = texto.indexOf(" ");
-			var primeraLetra = texto.charAt(0).toUpperCase();
-			var segundaLetra = texto.charAt(posEspacio + 1).toUpperCase();
+			var spaceIndex = 0;
+			spaceIndex = text.indexOf(" ", spaceIndex);
 
-			document.write(primeraLetra + "." + segundaLetra + ".<br/>");
+			var auxText //= text.substring(0, spaceIndex);
+			var prevSpaceIndex = -1;
+			var finalText = "";
+
+			text += " ";
+
+			while(spaceIndex != -1)
+			{
+				auxText = text.substring(prevSpaceIndex + 1, spaceIndex);
+				prevSpaceIndex = spaceIndex
+				spaceIndex = text.indexOf(" ", spaceIndex + 1);
+
+				finalText += auxText.charAt(0).toUpperCase() + "."
+			}
+
+			finalText = finalText.substring(0, finalText.length - 1);
+			document.write(finalText + "<br/>");
+
+			// 3- GERMÁN
+			// var posEspacio = 0;
+			// var letra = text.charAt(0).toUpperCase();
+			// var iniciales = "";
+
+			// while(posEspacio >= 0)
+			// {
+			// 	iniciales = iniciales + letra + ".";
+			// 	posEspacio = text.indexOf(" ", posEspacio + 1);
+			// 	letra = text.charAt(posEspacio + 1).toUpperCase();
+			// }
+
+			// document.write(iniciales + "<br/>");
+
+
+		}, 100);
 
 		</script>
 

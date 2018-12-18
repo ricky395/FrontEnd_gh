@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Objetos</title>
+		<meta charset="UTF-8"/>		
+	</head>
+	<body>
+		<h1>Objetos</h1>
+
+		<script type="text/javascript">
+
+			var myObj = new Object();
+			myObj.unSubValor = 10;
+			myObj.otraPropiedad = "Texto";
+			myObj.atributoObjeto = new Object();
+			myObj.variableMiembro = true;
+
+			var persona_1 = new Object();
+			persona_1.nombre = "Ana";
+			persona_1.apellido1 = "Perez";
+			persona_1.apellido2 = "Rodríguez";
+			persona_1.edad = 25;			
+			persona_1.tieneTrabajo = false;
+			persona_1.salario = prompt("Escribe el salario de " + persona_1.nombre + " " + persona_1.apellido1);
+			persona_1.salario = parseFloat(persona_1.salario);
+
+			if (persona_1.salario > 0) 
+			{
+				persona_1.tieneTrabajo = true;
+			} 
+			else 
+			{
+				persona_1.tieneTrabajo = false;
+			}
+
+			document.write(persona_1.apellido1 + " " + persona_1.apellido2 + ", " + persona_1.nombre + "<br/>");
+			document.write("Edad: " + persona_1.edad);
+
+			if(persona_1.tieneTrabajo)
+				document.write("<br/> Tiene trabajo, con salario: " + persona_1.salario);
+			else
+				document.write("<br/> No tiene trabajo");
+
+		</script>
+
+	</body>
+
+</html>

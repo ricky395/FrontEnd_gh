@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Ordenación</title>
+		<meta charset="UTF-8"/>		
+	</head>
+	<body>
+		<h1>Ordenación</h1>
+
+		<script type="text/javascript">
+
+			var disordNums = [2, 15, 4, 1, 7, 3, 3, 2, 6, -8, 0, -50];
+			var numsLength = disordNums.length;
+			var ordNums = disordNums.slice();
+
+			var min;
+			var ordered;
+
+			while (!ordered)
+			{
+				ordered = true;
+				for (var j = 0; j < numsLength - 1; ++j) 
+				{
+					if (ordNums[j] > ordNums[j + 1])
+					{
+						var auxN = ordNums[j + 1];
+						ordNums[j + 1] = ordNums[j];
+						ordNums[j] = auxN;
+						ordered = false;
+					}
+				}
+			}
+
+			document.write("<h2> Desordenado </h2> </br>")
+			for (var i = 0; i < numsLength; ++i) 
+			{
+				document.write("<b>" + disordNums[i] + "</b> ")
+			}
+
+			document.write("</br></br> <h2> Ordenado </h2> </br>")
+			for (var i = 0; i < numsLength; ++i) 
+			{
+				document.write("<b>" + ordNums[i] + "</b> ")
+			}				
+			
+		</script>
+
+	</body>
+
+</html>

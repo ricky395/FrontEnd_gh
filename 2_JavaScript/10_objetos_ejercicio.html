@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Ejercicio objetos</title>
+		<meta charset="UTF-8"/>		
+	</head>
+	<body>
+		<h1>Ejercicio objetos</h1>
+
+		<script type="text/javascript">
+
+			var persona_1 = new Object();
+			persona_1.nombre = "Juan";
+			persona_1.apellido1 = "Perez";
+			persona_1.edad = 25;
+			persona_1.datos = persona_1.nombre + "\n" + persona_1.apellido1 + "\n" + persona_1.edad;
+
+			var persona_2 = new Object();
+			persona_2.nombre = "";
+
+			while(!/^[a-zA-Z]+$/.test(persona_2.nombre))
+			{
+				persona_2.nombre = prompt("Introduce tu nombre");
+			}
+
+			persona_2.apellido1 = "";
+
+			while(!/^[a-zA-Z]+$/.test(persona_2.apellido1))
+			{
+				persona_2.apellido1 = prompt("Introduce tu primer apellido");
+			}
+
+			persona_2.edad = 0;
+
+			while(!Number.isInteger(persona_2.edad) || persona_2.edad <= 0)
+			{
+				persona_2.edad = prompt("Introduce tu edad");
+				persona_2.edad = parseInt(persona_2.edad);
+			}
+
+			persona_2.datos = persona_2.nombre + "\n" + persona_2.apellido1 + "\n" + persona_2.edad;
+
+
+			var opcion;
+			var final = "";
+
+			// Opción
+			while(!/^[naeNAE]+$/.test(opcion) || opcion.length != 1)
+			{
+				opcion = prompt("¿Cómo quieres mostrar los datos?\n- N: Ordenado alfabéticamente por nombre\n- A: Ordenado alfabéticamente por apellidos\n- E: Ordenado por edad");
+			}
+
+			opcion = opcion.toLowerCase();
+			switch(opcion)
+			{
+				case "n":
+					if (persona_1.nombre < persona_2.nombre)
+						final += persona_1.datos + "<br/>" + persona_2.datos
+					else
+						final += persona_2.datos + "<br/>" + persona_1.datos
+					break;
+
+				case "a":
+					if (persona_1.apellido1 < persona_2.apellido1)
+						final += persona_1.datos + "<br/>" + persona_2.datos
+					else
+						final += persona_2.datos + "<br/>" + persona_1.datos
+					break;
+
+				case "e":
+					if (persona_1.edad < persona_2.edad)
+						final += persona_1.datos + "<br/>" + persona_2.datos
+					else
+						final += persona_2.datos + "<br/>" + persona_1.datos
+					break;
+			}
+
+			document.write(final);
+
+		</script>
+
+	</body>
+
+</html>

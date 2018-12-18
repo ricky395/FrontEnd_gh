@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+
+h1 {
+	font-family: "Roboto";
+}
+
+p {
+	font-size: 20px;
+	padding-left: 1em;
+	background-color:#CFF;
+	float:left;
+}
+
+.izquierda{
+	margin-left: 5em;
+}
+
+.derecha{
+	visibility:hidden;
+	margin-right: 5em;
+}
+
+.bloque1{
+	background-color:#0FF;
+	min-height: 10em;
+	margin-left:10em;
+	margin-right:10em;
+}
+
+.bloque2{
+	background-color:#FF9;
+	margin:1em;
+	
+	position:relative;
+}

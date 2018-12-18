@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Bucles</title>
+		<meta charset="UTF-8"/>		
+	</head>
+	<body>
+		<h1>Bucles</h1>
+
+		<style type="text/css">
+
+			table
+			{
+				border-collapse: collapse;
+  				width: 90%;
+			}
+			th , td
+			{
+				text-align: center;
+  				padding: 8px;
+			}
+			
+			tr:nth-child(even){background-color: #f2f2f2}
+
+			th 
+			{
+				background-color: #4CAF50;
+				color: white;
+			}
+
+		</style>
+
+		<script type="text/javascript">
+
+			var num_tables = 5;
+
+			var quantity = 20;
+
+			document.write("<table border=\"1px\">");
+
+			for (var j = 0; j <= quantity; ++j) 
+			{
+				document.write("<tr>");
+
+				for(var i = 1; i <= num_tables; ++i)
+				{
+					if (j == 0)
+						document.write("<th>Tabla del " + i + "</th>");
+					else
+						document.write("<td>" + i + " x " + j + " = " + i*j + "</td>");
+				}
+			
+				document.write("</tr>");
+			}
+
+			document.write("</table");
+			
+		</script>
+
+	</body>
+
+</html>

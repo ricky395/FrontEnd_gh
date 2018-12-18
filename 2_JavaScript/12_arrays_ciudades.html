@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Arrays</title>
+		<meta charset="UTF-8"/>		
+	</head>
+	<body>
+		<h1>Arrays</h1>
+
+		<script type="text/javascript">
+
+			var cities = new Array();
+			var name = prompt("Introduce el nombre de una ciudad");
+			var i = 0;
+
+			while(name != "" && name != "null")
+			{
+				cities[i++] = name;
+				name = prompt("Introduce el nombre de una ciudad");
+			}
+
+			i = 0;
+			while(i < cities.length)
+			{
+				document.write(cities[i++] + "<br/>");
+			}
+
+		</script>
+
+	</body>
+
+</html>

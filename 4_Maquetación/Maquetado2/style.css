@@ -1,0 +1,128 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	margin: 0;
+  	background-color: grey;
+}
+
+@media only screen and (max-width: 10000px)
+{
+	.e100 {
+		width: 98%;
+		flex-grow: 1;
+	}
+
+	.e75 {
+		/*width: 10%;*/
+		flex-grow: 3;
+	}
+
+	.e33 {
+		width: 30%;
+		flex-grow: 1;
+	}
+
+	.e25 {
+		/*width: 10%;*/
+		flex-grow: 1;
+	}
+}
+
+.header {
+	background-color: #2D2D2D;
+	height: 4em;
+	padding: 1em;
+	width: 100%;
+}
+
+.sticky {	
+	position: fixed;
+}
+
+.espacioBanner {
+	background-color: #69C;
+	height: 3em;
+	margin-left: 10%;
+	margin-right: 10%;
+
+	display: flex;
+	flex-direction: row;
+}
+
+.botonBanner {
+	background-color: lightgrey;
+	font-family: Consolas, "Andale Mono", "Lucida Console";
+	float: left;
+	margin: 10px;
+	color: black;
+	padding: 1em;
+	text-decoration: none;
+	box-shadow: none;
+	font-size: 1em;
+	line-height: 0.2em;
+
+	transition: background-color 0.3s, 
+				color 0.3s, 
+				box-shadow 0.3s,
+				font-size 0.3s ;
+}
+
+.botonBanner:hover {
+	background-color: black;
+	box-shadow: 5px 5px 5px rgb(80, 80, 80);
+	color: white;
+	font-size: 1.01em;
+
+	transition: 0.3s;
+}
+
+.contenedorFlex {
+	background-color: #EDD2D6;
+	width: 75%;
+	min-height: 10em;
+	margin: auto;
+
+	display: flex;
+	flex-direction: row;	
+	flex-wrap: wrap;
+}
+
+.cajaFlex {
+	background-color: #D6F2FF;
+	width: 8em;
+	min-height: 8em;
+	margin: 5px;
+	border-radius: 10px;
+	line-height: 8em;
+	font-size: 2em;
+	text-align: center;
+
+	display: flex;
+	flex-direction: column;
+	align-content: stretch;
+}
+
+
+/*@media screen and (min-width:1064px) 
+{   
+	.f1 {
+		flex-grow: 1;
+	}
+
+	.f0 {
+		flex-grow: 0;
+	}
+}
+
+@media screen and (max-width:1063px) 
+{   
+	.f1 {
+		flex-grow: 1;
+	}
+
+	.f0 {
+		flex-grow: 1;
+	}
+}*/
+

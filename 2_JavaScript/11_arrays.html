@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Arrays</title>
+		<meta charset="UTF-8"/>		
+	</head>
+	<body>
+		<h1>Arrays</h1>
+
+		<script type="text/javascript">
+
+			var students = new Array();
+			students[0] = ["Juan", 4];
+			students[1] = ["Manu", 7];
+
+			var studentIndex = 2;
+			while(studentIndex < 4)
+			{
+				createStudent(studentIndex++);
+			}
+
+			var i = 0;
+			while(i < students.length)
+			{
+				document.write("<br/>Alumno " + (i+1) + ": " + students[i][0] + " - " + students[i][1]);
+				++i;
+			}
+
+			function createStudent(index)
+			{
+				var name = "", mark = "";
+
+				while(!/^[a-zA-Z]+$/.test(name))
+				{
+					name = prompt("Nombre del alumno");
+				}
+
+				while(!isFloat(mark) && !Number.isInteger(mark) || mark < 0 || mark > 10)
+				{
+					mark = prompt("Nota del alumno");
+					mark = parseFloat(mark);
+				}
+
+				var primeraLetra = name.charAt(0).toUpperCase();
+				var restoTexto = name.substring(1).toLowerCase();
+				students[index] = [primeraLetra + restoTexto, mark];
+			}
+
+			function isFloat(n) 
+			{
+			    return n === +n && n !== (n|0);
+			}
+
+		</script>
+
+	</body>
+
+</html>
