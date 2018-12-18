@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Funciones</title>
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+    <h1>Funciones</h1>
+</body>
+
+<script type="text/javascript">
+
+    // Funciones sin retorno
+    function mostrarTitulo() 
+    {
+        document.write("<h2>Subtitulo de pagina</h2></br>");
+    }
+
+    mostrarTitulo();
+
+    function descuento(precio, descuento)
+    {
+        var precioConDescuento;
+        precioConDescuento = precio - precio * descuento / 100;
+        document.write("Precio: " + precio + ", decuento: " + descuento + ", total: " + precioConDescuento + "</br>");
+    }
+
+    descuento(20, 50);
+    descuento(100, 25);
+
+    // Funciones con retorno
+    function dameTitulo()
+    {
+        return "Titulo funciones con retorno";
+    }
+
+    document.write("<h1>" + dameTitulo() + "</h1>");
+    document.write("<h2>" + dameTitulo() + "</h2>");
+
+    function dateCabecera(texto, nivel)
+    {
+        var abreH = "<h" + nivel + ">";
+        var cierraH = "</h" + nivel + ">";
+        return abreH + texto + cierraH;
+    }
+
+    document.write(dateCabecera("Cabecera 1", 1));
+    document.write(dateCabecera("Cabecera 2", 2));
+
+</script>
+
+</html>

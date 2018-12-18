@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Funciones</title>
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+</body>
+
+<script type="text/javascript">
+
+    /* Crear funciones:
+    
+        - Una muestra 6 cabeceras del h1 al h2 con titulo que se pase por parámetro (con bucle)
+        - Recibe 3 parámetros: los 2 primeros los operandos, el 3º el operador suma, resta, mult, div y que muestre el resultado dentro de la funcion
+        - Otra que eleve al cubo un número. Comprobar que funciona con 3(27) y con 4(64).
+    */
+
+    function showHeaders(text)
+    {        
+        for (var index = 1; index <= 6; ++index) 
+        {            
+            var openH = "<h" + index + ">";
+            var closeH = "</h" + index + ">";
+            document.write(openH + text + closeH + "</br>");
+        }
+    }
+
+    function operate(a, b, operator)
+    {
+        switch(operator)
+        {
+            case "+":
+            document.write("Resultado de la suma: " + (a + b) + "</br>");
+            break;
+
+            case "-":
+            document.write("Resultado de la resta: " + (a - b) + "</br>");
+            break;
+
+            case "*":
+            document.write("Resultado de la multiplicación: " + (a * b) + "</br>");
+            break;
+
+            case "/":
+            document.write("Resultado de la división: " + (a / b) + "</br>");
+            break;
+        }
+    }
+
+    function alCubo(n)
+    {
+        document.write("Número al cubo: " + Math.pow(n, 3) + "</br>");
+    }
+
+    showHeaders("Titulo");
+
+    document.write("</br>");
+
+    operate(10, 2, "+");
+    operate(10, 2, "-");
+    operate(10, 2, "*");
+    operate(10, 2, "/");
+
+    document.write("</br>");
+
+    alCubo(3);
+    alCubo(4);
+
+
+
+    /*
+        Mismas funciones pero:
+        
+        - 1. Usando un array que tenga los valores de cabecera ["h1", "h2", "h3"]
+        - 2. Que haga lo mismo pero:
+                - Usando la función eval(), que ejecuta un texto como si fuera código JS
+                - Usando sólo el operador ternario
+        - 3. Una función que eleve a la X potencia mediante un bucle o mediante función recursiva
+    */
+
+    var headers = ["h1", "h2", "h3", "h4", "h5", "h6"];
+
+    function showHeader(text, n = 0) 
+    {
+        for (var index = n; index < 6; index++) 
+        {
+            var openH = "<" + headers[index] + ">";
+            var closeH = "</" + headers[index] + ">";
+            document.write(openH + text + closeH + "</br>");
+        }
+    }
+
+    function operateEval(operation) 
+    {
+        document.write("Resultado operación " + operation + ": " + eval(operation) + "</br>");
+    }
+
+    function operateTern(a, b, operator) 
+    {
+        var result;
+
+        result = operator == "+" ? (a + b) : 
+                    operator == "-" ? (a - b) :
+                        operator == "*" ? (a * b) : (a / b);
+
+        document.write("Resultado operación: " + result);
+    }
+
+    function pow(n, x) 
+    {
+        if (x > 0)
+        {
+            return n * pow(n, x - 1);
+        }
+        else
+            return 1;
+
+        // var total = n;
+        // for (var index = 0; index < x - 1; index++) 
+        // {
+        //     total *= n;
+        // }
+
+        // return total;
+    }
+
+    showHeader("Titulo");
+    operateEval("10 + 2");
+    operateTern(10, 2, "+");
+    document.write("<br>Resultado potencia: " + pow(3, 3));
+
+
+</script>
+
+</html>
