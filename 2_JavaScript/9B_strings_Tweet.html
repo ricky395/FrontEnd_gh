@@ -1,22 +1,106 @@
 <!DOCTYPE html>
 <html lang="es">
-	<head>
-		<title>Prueba Tweet</title>
-		<meta charset="UTF-8"/>		
-	</head>
-	<body>
-		<h1>Prueba Tweet</h1>
+<head>
+	<title>Prueba Tweet</title>
+	<meta charset="UTF-8"/>
+	<link href="9B_strings_Tweet.css" rel="stylesheet" type="text/css" />
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-		<form name="valform" action="" method="POST">
-			<input type="text" id="tweetBox"><br/>
-		</form>
+</head>
+<body>
+	
+	<div class="container">
+		<div class="main row">
+			<div class="createTweet col-md-3">		
+				<div class="spacing">
+					<h1>Nuevo Tweet</h1>
+					<form name="valform" action="" method="POST">
+						<textarea id="tweetBox" rows="4" cols="30" oninput="calcChars()"></textarea>
+						<div id="chars">100</div>
+						<input type="button" value="Publicar" onclick="publish();"/>
+					</form>
+				</div>
+			</div>
 
-		<script type="text/javascript">
+			<div class="col-md-9">
+				<div id="tweets" class="row tweets spacing">
+				</div>
+			</div>				
+		</div>
+	</div>
 
-			document.getElementById("tweetBox").value;
 
-		</script>
+	<script type="text/javascript">
 
-	</body>
+		var tBox = document.getElementById("tweetBox");
+		var charsText = document.getElementById("chars");
+		var tweets = document.getElementById("tweets");
+		var maxChars = 100;
+
+		function calcChars()
+		{
+			var text = tBox.value;
+
+			if (maxChars - text.length < 0)
+			{
+				tBox.value = text.substring(0, maxChars);
+				charsText.style.color = "red";
+			}
+			else
+			{
+				charsText.innerHTML = maxChars - text.length;
+				charsText.style.color = "";
+			}
+		}
+
+		function publish()
+		{
+			/*
+			<div class="spacing newTweet">
+				<div class="col-md-12">
+					Texto
+				</div>
+				<div class="offset-md-9 col-md-3 timeText">
+					Hora
+				</div>
+			</div>
+			*/
+			if (tBox.value != "")
+			{
+				var parentNode = document.createElement("div");
+				parentNode.setAttribute("class", "spacing newTweet");		
+				
+				var textNode = document.createElement("div");
+				textNode.setAttribute("class", "col-md-12");
+				
+				var dateNode = document.createElement("div");
+				dateNode.setAttribute("class", "offset-md-6 col-md-6 col-xs-12 timeText");
+
+
+				var currentdate = new Date();
+
+				textNode.innerHTML = tBox.value;
+				dateNode.innerHTML = currentdate.getDay() + "/"+ currentdate.getMonth() + "/" + currentdate.getFullYear() + " - " + currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+				
+				parentNode.appendChild(textNode);
+				parentNode.appendChild(dateNode);
+				tweets.appendChild(parentNode);
+	
+				resetBox();
+			}
+		}
+
+		function resetBox()
+		{
+			charsText.innerHTML = maxChars;
+			tBox.value = "";
+		}
+
+	</script>
+
+</body>
 
 </html>

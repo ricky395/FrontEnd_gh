@@ -1,0 +1,29 @@
+
+.newTweet
+{
+	background-color: lightblue;
+}
+
+.createTweet
+{
+	background-color: greenyellow;
+}
+
+.spacing
+{
+	padding: 1.5em;
+	margin: 1em;
+}
+
+.timeText
+{
+	font-size: 0.8em;
+	text-align: right;
+}
+
+.tweets
+{
+	display: flex;
+	flex-direction: column;
+	flex-flow: column-reverse;
+}

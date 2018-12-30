@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>Ejemplo formularios</title>
+	<meta charset="UTF-8" />
+</head>
+
+<body class="clase_body">
+	<h1>Validación de formulario de registro</h1>
+	<form action="0_plantilla.html" method="get">
+
+		<table id="tabla">
+			<tr>
+				<td>Email: </td>
+				<td><input id="email" size="30" maxlength="100" /></td>
+			</tr>
+			<tr>
+				<td>Confirmar email: </td>
+				<td><input id="email_rep" size="30" maxlength="100" /></td>
+			</tr>
+			<tr>
+				<td>Contraseña:</td>
+				<td><input id="password" type="password" maxlength="20" /></td>
+			</tr>
+			<tr>
+				<td>Confirmar contraseña:</td>
+				<td><input id="password_rep" type="password" maxlength="20" /></td>
+			</tr>
+
+		</table>
+
+		<input type="button" value="Validar" onclick="validar();" />
+
+		<div id="texto_final"></div>
+
+	</form>
+	<script src="5_formularios_JS.js"></script>
+</body>
+
+</html>

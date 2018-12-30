@@ -13,11 +13,11 @@
  <img class="floatingImage" id="myImg2" src="gato2.png" > 
  <img class="floatingImage" id="myImg3" src="gato2.png" > 
  <img class="floatingImage" id="myImg4" src="gato2.png" > 
- <img class="floatingImage" id="myImg5" src="gato2.png" > 
- <img class="floatingImage" id="myImg6" src="gato2.png" > 
+ <img class="floatingImage" id="myImg5" src="gato2.png" >
+ <!--<img class="floatingImage" id="myImg6" src="gato2.png" > 
  <img class="floatingImage" id="myImg7" src="gato2.png" > 
  <img class="floatingImage" id="myImg8" src="gato2.png" > 
- <img class="floatingImage" id="myImg9" src="gato1.png" > 
+ <img class="floatingImage" id="myImg9" src="gato1.png" >  -->
 
  <div class="text">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel eos nihil voluptate dicta placeat, minus architecto, alias quo ratione? Doloribus autem eligendi tenetur, tempora repudiandae officia dolor vitae natus libero nostrum impedit obcaecati totam molestias! Distinctio quo eligendi qui aperiam fugit, sed voluptate fuga aspernatur dolorum pariatur alias iure tenetur quae consectetur minima? Facere ipsam officiis ullam nemo, ab unde, dolores cumque. Temporibus illum repudiandae soluta laborum architecto consequatur nesciunt reprehenderit ipsum numquam perferendis natus obcaecati, esse quaerat, repellat officiis eligendi laudantium, ea molestias perspiciatis autem iure facilis quis eveniet hic. Similique a cum nesciunt ratione unde porro, necessitatibus sed! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel eos nihil voluptate dicta placeat, minus architecto, alias quo ratione? Doloribus autem eligendi tenetur, tempora repudiandae officia dolor vitae natus libero nostrum impedit obcaecati totam molestias! Distinctio quo eligendi qui aperiam fugit, sed voluptate fuga aspernatur dolorum pariatur alias iure tenetur quae consectetur minima? Facere ipsam officiis ullam nemo, ab unde, dolores cumque. Temporibus illum repudiandae soluta laborum architecto consequatur nesciunt reprehenderit ipsum numquam perferendis natus obcaecati, esse quaerat, repellat officiis eligendi laudantium, ea molestias perspiciatis autem iure facilis quis eveniet hic. Similique a cum nesciunt ratione unde porro, necessitatibus sed!
@@ -30,49 +30,104 @@
 	  this.img = image;
 	  this.posX = posX;
 	  this.posY = posY;
-	  this.velX = 3;
-	  this.velY = 3;
+	  this.vel = 3;
+	  this.dirX = 1;
+	  this.dirY = 1;
 	}
 
-	var elms = new Array(9);
+	var elms = new Array(5);
 
-	for (var i = 0; i < 9; i++) {
-		elms[i] = new cage(document.getElementById("myImg" + (i + 1).toString()), i*100, i*10);
+	for (var i = 0; i < elms.length; i++) {
+		elms[i] = new cage(document.getElementById("myImg" + (i + 1).toString()), i*400, i*100);
 	}
 
-	setInterval(bounce, 10);
+	setInterval(update, 10);
+	
+	function update()
+	{
+		bounce();
+		collide();
+	}
 
-	function bounce()
+	function collide()
+	{
+		for (var i = elms.length - 1; i >= 0; i--) 
+		{
+			for (var j = elms.length - 1; j >= 0; j--) 
+			{
+				if (j != i)
+				{
+					var xDiff = (elms[i].posX + 100) - (elms[j].posX + 100);
+					var yDiff = (elms[i].posY + 100) - (elms[j].posY + 100);
+
+					var xAbs = Math.abs(xDiff);
+					var yAbs = Math.abs(yDiff);
+					
+					if (xAbs < 200 && yAbs < 200)
+					{	
+						var nVector = normalize(xAbs, yAbs);
+						
+						elms[i].dirX = - nVector[0];
+						elms[i].dirY = - nVector[1];
+
+						elms[j].dirX = nVector[0];
+						elms[j].dirY = nVector[1];
+
+						// var vectorX = Math.sqrt(xDiff * xDiff);
+						// var vectorY = Math.sqrt(yDiff * yDiff);
+						// // console.log(elms[i].dirX + "  " + vectorX + "  " + elms[i].dirX/vector);
+						// elms[i].dirX = (elms[i].dirX / vector) * elms[i].vel;
+						// elms[i].dirY = (elms[i].dirY / vector) * elms[i].vel;
+						// elms[j].dirX = - (elms[j].dirX / vector) * elms[j].vel;
+						// elms[j].dirY = - (elms[j].dirY / vector) * elms[j].vel;
+					}
+				}
+			}
+		}
+	}
+
+	function normalize(x, y)
+	{
+		var division;
+
+		if (x >= y)
+			division = x;
+		else
+			division = y;
+
+		return [x / division, y / division];
+	}
+
+	function bounce ()
 	{
 		for (var i = elms.length - 1; i >= 0; i--) 
 		{
 			var el = elms[i];
-			el.posX += el.velX;
-			el.posY += el.velY;
+			el.posX += el.vel * el.dirX;
+			el.posY += el.vel * el.dirY;
 
 			el.img.style.left = el.posX + "px";
 			el.img.style.top = el.posY + "px";
 
 			if (el.posX + 200 >= window.innerWidth)
 			{
-				el.velX *= -1;
+				el.dirX *= -1;
 			}
 			if (el.posY + 200 >= window.innerHeight)
 			{
-				el.velY *= -1;
+				el.dirY *= -1;
 			}
 			if (el.posX <= 0)
 			{
-				el.velX *= -1;
+				el.dirX *= -1;
 			}
 			if (el.posY <= 0)
 			{
-				el.velY *= -1;
+				el.dirY *= -1;
 			}
-		}		
-
-		//window.innerWidth
+		}
 	}
+
 </script>
 
 </body>

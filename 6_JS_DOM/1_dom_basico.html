@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1></h1>
+    <div id="un_div" style="background-color: chartreuse">
+        <p>un texto</p>
+        <table id="tabla_paises">
+            <tr>
+                <td>Ciudad</td>
+                <td>País</td>
+            </tr>
+            <tr>
+                <td>Madrid</td>
+                <td>España</td>
+            </tr>
+            <tr>
+                <td>Lisboa</td>
+                <td>Portugal</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+
+        var unDiv = document.getElementById("un_div");
+        var nodoH2 = document.createElement("h2");
+        var textoEnH1 = document.createTextNode("Subtítulo añadido por SJ");
+        
+        nodoH2.appendChild(textoEnH1);
+        unDiv.appendChild(nodoH2);
+
+        unDiv.setAttribute("style", "background-color: lightblue");
+        document.getElementsByTagName("p") [0]
+            .appendChild(document.createTextNode("Texto append"));
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="d1" style="margin: 0px 0px 0px 5px; background-color:chocolate; width: 10em">
+        Texto cualquiera
+    </div>
+
+    <script>
+
+        var posicion = 5;
+        var velocidad = 0.1;
+        var d1 = document.getElementById("d1");
+        var divAncho = d1.offsetWidth;
+
+        function cadaDecimaSeg() 
+        {
+            if (posicion > window.innerWidth - divAncho)
+            {
+                clearInterval(relojId);
+            }
+            else
+            {
+                posicion += velocidad;
+                velocidad += 0.05;
+
+                ++posicion;
+                d1.setAttribute("style", "margin: 0px 0px 0px " + posicion + "px; background-color:chocolate; width: 10em");
+            }
+        }
+
+        var relojId = setInterval(cadaDecimaSeg, 10);
+
+    </script>
+
+</body>
+
+</html>

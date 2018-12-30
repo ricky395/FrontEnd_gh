@@ -1,0 +1,54 @@
+@charset "utf-8";
+/* CSS Document */
+
+.marco{
+	
+	width: 400px;
+	height: 400px;
+	margin:auto;
+}
+
+.circulo{
+	position: absolute;
+	left:0px;
+	
+	width: 400px;
+	height: 400px;
+	border-radius: 100%;
+	
+	border-color: red;
+	border-width: 3p;
+	border-style: solid;
+	
+	animation-name: vueltas;
+	animation-duration: 3s;
+	animation-iteration-count: infinite;
+}
+
+@keyframes vueltas {
+	
+	0%{
+		width: 400px;
+		left:0px;
+	}
+	
+	50% {
+		width: 0px;
+		left:200px;
+	}
+	
+	100% {
+		width: 400px;
+		left:0px;
+	}
+}
+.delay1{
+	animation-delay: 0.05s;
+	border-color: rgba(255,0,4,0.5);
+}
+.delay2{
+	animation-delay: 0.1s;		border-color: rgba(255,0,4,0.1) ;
+}
+
+
+
