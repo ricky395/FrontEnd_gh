@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<div id="info"></div>
+<div id="img_german"><img src="german.jpg" onmouseover="germanMove();" alt="No image"></div>
+
+<script src="../jQuery_lib/jquery-3.3.1.js"></script>
+
+<script>
+    
+    var quotes = ["Venga chicos a programar", 
+                  "El control de versiones es impostantísimo!", 
+                  "Venga vamos a hacer el descansito",
+                  "Que el flujo te acompañe!!!",
+                  "A programar se aprende programando ( ͡° ͜ʖ ͡°)",
+                  ];
+
+    function addInfo(panel, data)
+    {
+        $(panel).append(data + "<br>");
+    }
+
+    function replaceInfo(panel, data)
+    {
+        $(panel).html(data + "<br>");
+    }
+
+    function germanMove()
+    {
+        var xSize = Math.random() * self.innerWidth;
+        var ySize = Math.random() * self.innerHeight;
+
+        if (xSize < 200) xSize = 200;
+        if (ySize < 200) ySize = 200;
+
+        germanQuote();
+    }
+
+    function germanQuote()
+    {
+        var valoresCss = new Object();
+
+        var xMarg = Math.random() * (self.innerWidth - 300);
+        var yMarg = Math.random() * (self.innerHeight - 300);
+
+        valoresCss.marginLeft = xMarg + "px";
+        $("#img_german").css(valoresCss);
+        valoresCss.marginTop = yMarg + "px";
+        $("#img_german").css(valoresCss);
+
+        var i = Math.random() * quotes.length;
+        i = Math.floor(i);
+        replaceInfo("#info", "<h2>" + quotes[i] + "</h2>");
+    }
+
+    //setInterval(update, 20);
+    
+</script>
+
+</body>
+</html>
