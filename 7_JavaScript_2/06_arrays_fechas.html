@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<div id="div_texto"></div>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+crossorigin="anonymous"></script>
+<script>
+
+    function compararPorAnio(a, b)
+    {
+        //return a.getTime() < b.getTime();
+
+        if (a.getFullYear() > b.getFullYear())
+            return 1;
+        else if (a.getFullYear() < b.getFullYear())
+            return -1;
+        else
+        {
+            if (a.getMonth() > b.getMonth()) return 1;
+            else if (a.getMonth() < b.getMonth()) return -1;
+            else return 0;
+        }
+    }
+
+    function Principal()
+    {
+        var fechas = 
+        [
+            new Date(1234567891234),
+            new Date(1995, 2, 29, 9), // 9 am del 1 de diciembre
+            new Date("January 8, 2019 09:00:00"),
+            new Date("February 7, 2018 09:00:00:00"),
+        ];
+
+        $("#div_texto").append((new Date()).toString());
+
+        $("#div_texto").append("<h2>" + fechas.join("</br>") + "</h2>");
+        var fechasSort = fechas.sort(compararPorAnio);
+        $("#div_texto").append("</br><h2>" + fechasSort.join("</br>") + "</h2>");
+        
+        $("#div_texto").append("</br></br><h2>Resultado: " + compararPorAnio(new Date(), fechas[2]) + "</h2>");       
+    }
+
+    $(document).ready(Principal);
+
+</script>
+
+</body>
+</html>

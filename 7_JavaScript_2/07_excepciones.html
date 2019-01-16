@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<p>Introduce un número entre 5 y 10</p>
+
+<input type="text" id="user_text">
+<button type="button" onclick="TestInput()">Test</button>
+<div id="div_texto"></div>
+<script src="../jQuery_lib/jquery-3.3.1.js"></script>
+
+<script>
+
+    function Principal()
+    {
+        try {
+        throw new Error("Provocando error");
+        $("#div_texto").append("Eeeeh!");
+        funcionMagica("Its Magic");
+        } catch (error) {
+            $("#div_texto").append("<br><br>Ha habido un error<br>");
+            $("#div_texto").append(error.message);
+        } finally {
+            $("#div_texto").append("<br>FINALLY");
+        }
+    }
+    //$(document).ready(Principal);
+
+    function TestInput()
+    {
+        var userInput = $("#user_text");
+        var value = userInput.val();
+
+        try {
+            if (value == "")
+                throw new Error("Valor vacío");
+            if (isNaN(value))
+                throw new Error("El valor no es un número");
+                
+            var number = Number(value);
+            if (number < 5 || number > 10)
+                throw new Error("El valor no está entre 5 y 10");
+            else
+            {
+                $("#div_texto").html("");
+                userInput.val("");
+            }
+        } catch (error) {
+            $("#div_texto").html(error.message);
+        }
+    }
+
+</script>
+
+</body>
+</html>

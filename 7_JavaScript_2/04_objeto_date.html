@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<div id="div_texto"></div>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+crossorigin="anonymous"></script>
+<script>
+
+    function UpdateTime() 
+    {  
+        var date = new Date();
+        $("#div_texto").html(getMesDia(date) + "<br>" + getHoraMinSeg(date));
+    }
+
+    $(document).ready( UpdateTime() )
+
+    setInterval(UpdateTime, 1000);
+
+    function getMesDia(_date)
+    {
+        return "Día: " + _date.getDate() + " Mes: " + getMesTexto(_date.getMonth());
+    }
+
+    function getHoraMin(_date)
+    {
+        return "Hora: " + _date.getHours() + " Minuto: " + _date.getMinutes();
+    }
+
+    function getHoraMinSeg(_date)
+    {
+        return "Hora: " + _date.getHours() + " Minuto: " + _date.getMinutes() + " Segundo: " + _date.getSeconds();
+    }
+
+    function getMesTexto(index)
+    {        
+        var months = ["Enero", "Febrero", "Marzo", "Abril"];
+        return months[index];
+    }
+
+    var posX = 0;
+    function moverDiv()
+    {
+        var valoresCss = new Object();
+        valoresCss.marginLeft = posX + "px";
+        $("#div_texto").css(valoresCss);
+        posX++;
+    }
+
+    setInterval(moverDiv, 50);
+
+</script>
+
+</body>
+</html>
