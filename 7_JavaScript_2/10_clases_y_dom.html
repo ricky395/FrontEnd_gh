@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script src="../jQuery_lib/jquery-3.3.1.js"></script>
+    <script>
+        class FechaDom
+        {
+            // dia;
+            // mes;
+            // anyo;
+
+            constructor(_dia, _mes, _anyo, _id)
+            {
+                this.id = _id;
+                this.dia = _dia;
+                this.mes = _mes + 1;
+                this.anyo = _anyo;
+
+                $("body").append(`<input id="in_dia${_id}" type="text" value="${_dia}"/>
+                                    <input id="in_mes${_id}" type="text" value="${_mes + 1}"/>
+                                    <input id="in_anyo${_id}" type="text" value="${_anyo}"/><br/>`);
+            }
+            getDia() 
+            { 
+                this.dia = $(`#in_dia${this.id}`).val();
+                return this.dia; 
+            }
+            getMes() 
+            { 
+                this.mes = $(`#in_mes${this.id}`).val();
+                return this.mes; 
+            }
+            getAnyo() 
+            { 
+                this.anyo = $(`#in_anyo${this.id}`).val();
+                return this.anyo;
+            }
+            printData() {
+                        $("body").append("<div>" +  fechaNacim.getDia() + "/" + 
+                                                    fechaNacim.getMes() + "/" + 
+                                                    fechaNacim.getAnyo() + "</div>");
+                        }
+        }
+
+        var fechaActual = new Date();
+        var fechaNacim = new FechaDom(  fechaActual.getDate(),
+                                        fechaActual.getMonth(),
+                                        fechaActual.getFullYear());
+
+        $("body").append(`<button type="button" onclick="fechaNacim.printData();">Enviar</button>`);
+
+        /*
+        Crear campos de fecha (FechaDom) a partir de la fecha decumpleaños. Pensar como mejorar este control:
+        - Añadir etiquetas a los campos
+        - Como hacer para obtener día, mes.. con los getters
+        */
+    </script>
+
+</body>
+</html>

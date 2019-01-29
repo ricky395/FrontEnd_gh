@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+<div>
+    <input id="input_mostrar" type="button"/>
+    <input id="input_ocultar" type="button"/>
+    <img src="img.png"/>
+</div>
+
+<script src="../jQuery_lib/jquery-3.3.1.js"></script>
+<script>
+    $(document).ready
+    (
+        function () {
+            $("input").eq(1).val("Ocultar");
+            $("input").eq(1).click(
+                function(){
+                    $("img").eq(0).hide(500);
+                }
+            ); // Segundo input
+            $("input").eq(0).val("Mostrar");
+            $("input").eq(0).click(
+                function(){
+                    $("img").eq(0).show(500);
+                }
+            ); // Segundo input
+        }
+    )
+</script>
+
+</body>
+</html>

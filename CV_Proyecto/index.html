@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>Gestor de Portfolio</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/Footer-with-button-logo.css">
+	<style type="text/css">
+		#div_presentacion, #div_form, #div_listado, #div_de_1_en_1 {
+			display: none;
+		}
+		* {
+			margin: 0px;
+			padding: 0px;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Ver más de NAVBAR con Bootstrap: https://www.w3schools.com/bootstrap/bootstrap_navbar.asp -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="#" class="navbar-brand">Gestor Portfolios</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li class="active"><a id="ver_presentacion" data-que-mostrar="div_presentacion" href="#">Inicio</a></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Ver portfolios <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<!-- Ver data y como obtenerlo: https://api.jquery.com/data/ -->
+							<li><a href="#" id="ver_listado" data-que-mostrar="div_listado">Listado completo</a></li>
+							<li><a href="#" id="ver_1_en_1" data-que-mostrar="div_de_1_en_1">De 1 en 1</a></li>
+							<li><a href="#" id="ver_por_categ" >Por categorías</a></li>
+						</ul>
+					</li>
+					<li><a href="#" id="ver_alta" data-que-mostrar="div_form">Nuevo</a></li>
+					<li><a href="#">Eliminar</a></li>
+				</ul>
+				<form class="navbar-form navbar-left">
+					<div class="input-group">
+						<input id="texto_busqueda" class="form-control" type="text" placeholder="Introduzca tecnología">
+						<div class="input-group-btn">
+							<button id="btnBuscar" class="btn btn-default" type="submit">
+								<i class="glyphicon glyphicon-search"></i>
+							</button>
+						</div>
+					</div>
+				</form>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-log-in" ></span> Login</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<section class="container">
+			<br/><br/><br/><br/>
+		<div id="div_presentacion">
+			<h1>Presentación Gestor Portfolio</h1>
+			<p>Una imágen de presentación estaría bien </p>
+			<br /> <br /> <br />
+			<br />
+			<h2>Proyecto conjunto</h2>
+			<p>Aquí pretendemos ... bla bla bla bla bla bla bla bla bla bla bla bla </p>
+			<p>Y también pretendemos ... bla bla bla bla bla bla bla bla bla bla bla bla </p>
+			<br /> <br /><br /> <br /><br /> <br />
+			<br />
+			<p>Y también pretendemos ... bla bla bla bla bla bla bla bla bla bla bla bla </p>
+		</div>
+		<div id="div_form">
+			<!-- Formulario Bootstrap: https://getbootstrap.com/docs/4.0/components/forms/ -->
+			<form role="form">
+				<div class="form-group  row">
+					<div class="col-lg-2 col-sm-2"> </div>
+					<label for="nombre" class="col-lg-2 col-sm-3 col-12 col-form-label">Nombre y apellidos:</label>
+					<div  class="col-lg-6 col-sm-5 col-12">
+						<input type="text" id="nombre" required="true" placeholder="Nombre y apellidos" class="form-control" />
+					</div>
+					<div class="col-lg-2 col-sm-2 "> </div>
+				</div>
+				<div class="form-group row">
+					<!--<div > </div>-->
+					<label class="col-form-label col-lg-2 col-sm-3 col-12 col-sm-offset-2">Descripción:</label>
+					<div  class="col-lg-6 col-sm-5 col-12">
+						<textarea id="descripcion"  class="form-control" required="true" placeholder="Descripción"></textarea>
+					</div>
+					<!--<div > </div>-->
+				</div>
+				<div class="form-group row">
+						<!--<div > </div>-->
+					<label for="nombre"  class="col-form-label col-lg-2 col-sm-3 col-12 col-sm-offset-2">Nombre ficheros:</label>
+					<div  class="col-lg-6 col-sm-5 col-12">
+						<input type="text" id="nombre_fichero" class="form-control"  required="true" placeholder="Introducir nombre sin extensión: nombre_apellidos (nombre_apellidos.png para imagen, nombre_apell.html para CV)"/> 
+						<!-- <form class="md-form my-3" action="#">
+							<div class="file-field row">
+								<div class="btn btn-primary btn-sm float-left col-lg-7">
+									<span>Choose files</span>
+									<input type="file" multiple>
+								</div>
+								<div class="file-path-wrapper  col-lg-5">
+									<input class="file-path validate" type="text" placeholder="Upload one or more files">
+								</div>
+							</div>
+						</form> -->
+					</div>
+					<!--<div > </div>-->
+				</div>
+				<div class="form-group row">
+						<!--<div > </div>-->
+					<div  class="col-lg-5 col-sm-5 col-12 col-sm-offset-5 row">
+						<input id="altaPortfolio" class="btn btn-success form-control" type="submit" value="AÑADIR" /><br/>
+						<input id="eliminarPortfolio" class="btn btn-danger form-control"   value="ELIMINAR" />
+					</div>
+					<!--<div > </div>-->
+				</div>
+			</form>
+		</div>
+		<div id="div_listado">
+			<h2>Listado CVs y Portfolios</h2>
+			<h3>Usando de bootstrap: .table .table-striped .table-bordered .table-hover .table-sm</h3>
+			<table class="table table-striped table-bordered table-hover table-sm ">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Descripcion</th>
+						<th>Curriculum</th>
+					</tr>
+				</thead>
+				<tbody id="tbody_lista_cvs">
+					<!-- Todos estos serán eliminados -->
+					<tr>
+						<td>Ana Perez</td>
+						<td>Desarrolladora Front-End maquetadora y programadora</td>
+						<td><a href="ejemplo_cv_1.html">Ver CV</a></td>
+					</tr>
+					<tr>
+						<td>Rubén González</td>
+						<td>Desarrollador Front-End maquetador y marketing</td>
+						<td><a href="ejemplo_cv_2.html">Ver CV</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div id="div_de_1_en_1">
+			<div class="form-group row">
+				<input id="btnAnterior" class="btn btn-default col-sm-1" type="button" value="&laquo;" />
+				<div class="col-sm-10"> </div>
+				<input id="btnSiguiente" class="btn btn-default col-sm-1"  type="button" value="&raquo;"  />
+			</div>
+			<div id="div_cv">
+				<h1>Curriculum Vitae</h1>
+				<h2>Datos personales</h2>
+				<dl>
+					<dt>Nombre:</dt>
+					<dd id="texto_nombre">Pues el nombre</dd>
+					<dt>Email:</dt>
+					<dd>email@dominio.com</dd>
+				</dl>
+				<div>
+					<figure>
+						<!-- Ver más de https://uniwebsidad.com/libros/bootstrap-3/capitulo-4/imagenes -->
+						<img id="img_foto" src="images/nom_apell_1.jpg" alt="Foto de Nombre y Apell">
+						<figcaption>Foto o dibujo</figcaption>
+					</figure>
+					<h2>Descripción</h2>
+					<div id="texto_descripcion">
+						<ul>
+							<li>
+								<h3>Grado Superior en Lo que sea </h3>
+								<p>Madrid</p>
+								<p>2016</p>
+							</li>
+						</ul>
+					</div>
+					<a id="enlace_cv" href="ejemplo_cv_1.html">Ver CV completo</a>
+				</div>
+			</div>
+			<div >
+				<input  type="button" value="&laquo;" />
+				<div > </div>
+				<input  type="button" value="&raquo;" />
+			</div>
+		</div>
+	</section>
+	<!-- Footer (par ver más: https://tutorialzine.com/2016/10/freebie-5-fantastic-bootstrap-footers -->
+	<footer id="myFooter">
+		<div >
+			<div >
+				<div >
+					<h2 ><a href="#"> LOGO </a></h2>
+				</div>
+				<div >
+					<h5>Get started</h5>
+					<ul>
+						<li><a href="#">Home</a></li>
+						<li><a href="#">Sign up</a></li>
+						<li><a href="#">Downloads</a></li>
+					</ul>
+				</div>
+				<div >
+					<h5>About us</h5>
+					<ul>
+						<li><a href="#">Company Information</a></li>
+						<li><a href="#">Contact us</a></li>
+						<li><a href="#">Reviews</a></li>
+					</ul>
+				</div>
+				<div >
+					<h5>Support</h5>
+					<ul>
+						<li><a href="#">FAQ</a></li>
+						<li><a href="#">Help desk</a></li>
+						<li><a href="#">Forums</a></li>
+					</ul>
+				</div>
+				<div >
+					<div >
+						<a href="#" ><i class="fa fa-twitter"></i></a>
+						<a href="#" ><i class="fa fa-facebook"></i></a>
+						<a href="#"><i class="fa fa-google-plus"></i></a>
+					</div>
+					<button type="button">Contact us</button>
+				</div>
+			</div>
+		</div>
+		<div>
+			<p>© 2018 Copyright Text </p>
+		</div>
+	</footer>
+
+	<!-- Footer -->
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script>
+	// Ver más de clases: https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Classes
+	
+	var tiempoAnim = 700;
+	var arrayPortfolios = new Array();
+
+	function rellenarTabla()
+	{
+		var tbody = $("#tbody_lista_cvs");
+		//tbody.empty();
+		tbody.html("");
+
+		for (let i = 0; i < arrayPortfolios.length; ++i) 
+		{
+			var textoTR = `<tr>
+						<td>${arrayPortfolios[i].nombre}</td>
+						<td>${arrayPortfolios[i].descripcion}</td>
+						<td><a href="${arrayPortfolios[i].fichero}">Ver CV</a></td>
+					</tr>`;
+					tbody.append(textoTR);
+		}
+	}
+
+	class Portfolio
+	{
+		constructor(nom, desc, nomFich)
+		{
+			if (typeof(nom) == "string" && nom != "")
+			{
+				this.nombre = nom;
+				this.descripcion = desc;
+				this.fichero = nomFich;
+			}
+			else
+				alert("Error, faltan textos!!");
+		}
+	}
+
+	var inicializar = function() 
+	{
+		$("#div_presentacion").show(tiempoAnim);
+		// $("a[id^='ver_']").click(
+		$("#ver_presentacion,#ver_alta,#ver_listado,#ver_1_en_1").click(function() 
+		{
+				var idDIV = $(this).data("que-mostrar");
+				mostrarDIV_Y_ocultarResto(idDIV);
+		});
+
+		$("#altaPortfolio").click(function ()
+		{
+			var nombre 	= $("#nombre")				.val();
+			var desc 		= $("#descripcion")		.val();
+			var fich 		= $("#nombre_fichero").val();
+			
+			$("#nombre").val("");
+			$("#descripcion").val("");
+			$("#nombre_fichero").val("");
+			
+			var objetoPortfolio = new Portfolio(nombre, desc, fich);
+			
+			if (objetoPortfolio.nombre != undefined)
+			{
+				arrayPortfolios.push(objetoPortfolio);
+				rellenarTabla();
+			}
+		});
+
+		$("#eliminarPortfolio").click(function ()
+		{
+			var nombre = $("#nombre").val();
+			var indice = -1;
+			for (let i = 0; i < arrayPortfolios.length; ++i) 
+			{
+				if(arrayPortfolios[i].nombre == nombre)
+					var indice = i;
+			}
+
+			if (indice != -1)
+			{
+				arrayPortfolios.splice(indice, 1);
+				rellenarTabla();
+			}
+		});
+	}
+	var mostrarDIV_Y_ocultarResto = function (id) 
+	{
+		$("#div_presentacion").hide(tiempoAnim);
+		$("#div_form").hide(tiempoAnim);
+		$("#div_listado").hide(tiempoAnim);
+		$("#div_de_1_en_1").hide(tiempoAnim);
+		$(`#${id}`).show(tiempoAnim);
+	}
+	var mostrarCV = function (index) 
+	{
+
+	}
+	var buscarCV = function(index) 
+	{
+
+	}
+	$(document).ready(inicializar);
+</script>
+
+</html>

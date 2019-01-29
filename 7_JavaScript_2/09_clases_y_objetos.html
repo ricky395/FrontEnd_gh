@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clases y Objetos</title>
+</head>
+<body>
+    <script>
+        // ECMAScript 6
+        // En las clases, los métodos no necesitan palabra clave function
+        class Rectangulo
+        {
+            // Se definen las características fijas que todo objeto tendrá
+            constructor(nuevoAncho, nuevoAlto)
+            {
+                this.ancho = nuevoAncho;
+                this.alto = nuevoAlto;
+            }
+            area()
+            {
+                return this.ancho * this.alto;
+            }
+            perimetro()
+            {
+                return (this.ancho + this.alto) * 2;
+            }
+        }
+
+        class Circulo
+        {
+            constructor(_radio)
+            {
+                this.radio = _radio;
+            }
+            area()
+            {
+                return Math.PI * this.radio * this.radio;
+            }
+            perimetro()
+            {
+                return Math.PI * this.radio * 2;
+            }
+        }
+
+        var unRect = new Rectangulo(10, 5);
+        var otroRect = new Rectangulo(5, 3);
+        document.write("<h2>Área del rectángulo: " + unRect.area() + "<br/>Perímetro del rectángulo: " + unRect.perimetro() +"</h2>");
+
+        var circulo = new Circulo(1);
+        document.write("<h2><br/>Área del círculo: " + circulo.area() + "<br/>Perímetro del círculo: " + circulo.perimetro() +"</h2>");
+
+    </script>
+</body>
+</html>
