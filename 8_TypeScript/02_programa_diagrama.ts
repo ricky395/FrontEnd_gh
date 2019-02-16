@@ -1,76 +1,145 @@
 interface IProducto
 {
-  precio: number;
-
   mostrar();
 }
 
-class Camiseta implements IProducto
+// Falta: validación de datos
+class Producto implements IProducto
 {
-  precio: number;
-  talla: string;
-  color: string;
+  private precio: number;
+  private nombre: string;
 
-  constructor(_precio, _talla, _color)
+  constructor(precio: number, nombre: string)
   {
-    this.precio = _precio;
-    this.talla = _talla;
-    this.color = _color;
+    this.precio = precio;
+    this.nombre = nombre;
   }
 
   mostrar()
   {
-    console.log("Precio de la camiseta: " + this.precio + "\nTalla: " + this.talla + "\nColor: " + this.color);
+    console.log(`Producto ${this.nombre}\nPrecio: ${this.precio} €`)
   }
+
+  public getPrecio() : number { return this.precio; }
+  public setPrecio(nuevoPrecio: number) : void { this.precio = nuevoPrecio; }
+  public getNombre() : string { return this.nombre; } 
 }
 
-class Libro implements IProducto
+class Camiseta extends Producto
 {
-  precio: number;
-  titulo: string;
+  private talla: string;
+  private color: string;
 
-  constructor(_precio, _titulo)
+  constructor(precio: number, talla: string, color: string)
   {
-    this.precio = _precio;
-    this.titulo = _titulo;
+    super(precio, "Camiseta");
+    this.talla = talla;
+    this.color = color;
   }
 
   mostrar()
   {
-    console.log("Título del libro: " + this.titulo + "\nPrecio del libro: " + this.precio);
+    console.log("Precio de la camiseta: " + this.getPrecio() + "€");
+    console.log("Talla: " + this.talla);
+    console.log("Color: " + this.color);
   }
+  
+  public getTalla() : string { return this.talla; }
+  public getColor() : string { return this.color; }
 }
 
-enum Producto
+class Libro extends Producto
+{
+  private titulo: string;
+
+  constructor(precio: number, titulo: string)
+  {
+    super(precio, "Libro");
+    this.titulo = titulo;
+  }
+
+  mostrar()
+  {
+    console.log("Título del libro: " + this.titulo);
+    console.log("Precio del libro: " + this.getPrecio() + "€");
+  }
+
+  public getTitulo() : string { return this.titulo; }
+}
+
+enum EProducto
 {
   Camiseta = 0,
   Libro
 }
 
-// TESTING
-let producto = Producto.Libro;
-
-// var stdin = process.openStdin();
-
-// stdin.addListener("data", function(d) {
-//     // note:  d is an object, and when converted to a string it will
-//     // end with a linefeed.  so we (rather crudely) account for that  
-//     // with toString() and then trim() 
-//     console.log("you entered: [" + 
-//         d.toString().trim() + "]");
-//   });
-
-switch (producto)
+enum EMenu
 {
-  case 0:
-  let ca: IProducto;
-  ca = new Camiseta(20, "M", "#ffffff");
-  ca.mostrar();
-  break;
-
-  case 1:
-  let li: IProducto;
-  li = new Libro(8, "La llamada de Cthulhu");
-  li.mostrar();
-  break;
+  MenuCompra = 0,
+  CompraInicial
 }
+
+// TESTING
+//let producto = Producto.Libro;
+
+var stdin = process.openStdin();
+
+console.log("¿Quieres comprar algo? (s/n)");
+console.log("¿Quieres camiseta(c) o libro(l)?");
+
+// function inputUsuario(d) 
+// {
+//   // Se eliminan los 2 últimos caracteres del string (\n)
+  
+//   stdin.off("data", inputUsuario);
+  
+//   // Se llama a la función que crea los objetos
+//   compraAlgo(input);
+//   process.exit();
+// }
+// stdin.addListener("data", inputUsuario());
+
+stdin.addListener("data", function(d) 
+{
+  // Se eliminan los 2 últimos caracteres del input (\n)
+  let input = d.toString().substring(0, d.length - 2);
+});
+
+function compraAlgo(input)
+{
+  switch (input)
+  {
+    case "c" || "C" || "camiseta" || "Camiseta":
+    let ca: IProducto;
+    ca = new Camiseta(20, "M", "#ffffff");
+    ca.mostrar();
+    break;
+
+    case "l" || "L" || "libro" || "Libro":
+    let li: IProducto;
+    li = new Libro(8, "La llamada de Cthulhu");
+    li.mostrar();
+    break;
+  }
+}
+
+// <ul>
+
+//   <li> Servicios </li>
+//     <ul class="">
+//       <li> Elemento 1 </li>
+//       <li> Elemento 2 </li>
+//     </ul>
+
+//   <li> Cuidados </li>
+//     <ul class="">
+//       <li> Elemento 1 </li>
+//       <li> Elemento 2 </li> 
+//       ...
+//     </ul>
+
+//   <li> Papaya </li>
+//     <ul class="">
+//     </ul>
+
+// </ul>
